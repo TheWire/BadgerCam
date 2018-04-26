@@ -1,14 +1,14 @@
 import datetime
 from picamera import PiCamera 
 from time import sleep
-from gpiozero import MotionSensor, LEd, Button
+from gpiozero import MotionSensor, LED, Button
 from signal import pause
 
 def video(time, camera, pir):
     infredLEDs = LED(17)
     infredLEDs.on()
     now = datetime.datetime.now()
-    camera.start_recording(now.strtime('%Y-%m-%dT%H:%M:%S') + '.h264')
+    camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
     while pir.is_pressed == True:
         camera.wait_recording(time)
     camera.stop_recording()
