@@ -5,7 +5,7 @@ from gpiozero import MotionSensor, LED, Button
 from signal import pause
 
 def video(time, camera, pir):
-    infredLEDs = LED(17)
+    infredLEDs = LED(5)
     infredLEDs.on()
     now = datetime.datetime.now()
     camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
