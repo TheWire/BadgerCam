@@ -34,10 +34,10 @@ def main():
     print("starting")
     onLED = LED(24)
     onLED.on()
+    switch = Button(2)
     check_switch(switch, onLED)
     camera = PiCamera()
     camera.resolution = (1920, 1080)
-    switch = Button(2)
     pir = MotionSensor(25)
     pir.when_motion = motion_detection_handler(camera, pir)
     while True:
