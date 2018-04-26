@@ -20,24 +20,27 @@ def video(time, camera, pir):
 
 def motion_detection_handler(camera, pir):
     print("motion detected")
-    video(20, camera, pir)
+    video(120, camera, pir)
 
-def check_switch(switch):
+def check_switch(switch, led):
     if switch.is_pressed == True:
         sleep(1)
         if switch.is_pressed == True:
             print("switch off, exiting")
+            led.off()
             exit()
 
 def main():
     print("starting")
+    onLED = LED(24)
+    onLED.on()
     camera = PiCamera()
     camera.resolution = (1920, 1080)
     switch = Button(2)
     pir = MotionSensor(25)
     pir.when_motion = motion_detection_handler(camera, pir)
     while True:
-        check_switch(switch)
+        check_switch(switch, onLED)
         sleep(0.1)
 
 
