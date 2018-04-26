@@ -4,7 +4,7 @@ from time import sleep
 from gpiozero import MotionSensor, LEd, Button
 from signal import pause
 
-def video(int time, PiCamera camera, MotionSensor pir):
+def video(time, camera, pir):
     infredLEDs = LED(17)
     infredLEDs.on()
     now = datetime.datetime.now()
@@ -15,10 +15,10 @@ def video(int time, PiCamera camera, MotionSensor pir):
     infredLEDs.off()
 
 
-def motion_detection_handler(PiCamera camera, MotionSensor pir):
+def motion_detection_handler(camera, pir):
     video(120, camera, pir)
 
-def check_switch(Button switch):
+def check_switch(switch):
     if switch.is_pressed == True:
         sleep(1)
         if switch.is_pressed == True:
