@@ -10,21 +10,26 @@ def video(time, camera, pir):
     now = datetime.datetime.now()
     camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
     while pir.motion_detected == True:
+        print("motion still detected")
         camera.wait_recording(time)
+    print("video off")
     camera.stop_recording()
     infredLEDs.off()
 
 
 def motion_detection_handler(camera, pir):
+    print("motion detected")
     video(120, camera, pir)
 
 def check_switch(switch):
     if switch.is_pressed == True:
         sleep(1)
         if switch.is_pressed == True:
+            print("switch off, exiting")
             exit()
 
 def main():
+    print("starting")
     camera = PiCamera()
     camera.resolution = (1920, 1080)
     switch = Button(2)
