@@ -9,6 +9,7 @@ def video(time, camera, pir):
     infredLEDs.on()
     now = datetime.datetime.now()
     camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
+    camera.wait_recording(time)
     while pir.motion_detected == True:
         print("motion still detected")
         camera.wait_recording(time)
@@ -19,7 +20,7 @@ def video(time, camera, pir):
 
 def motion_detection_handler(camera, pir):
     print("motion detected")
-    video(120, camera, pir)
+    video(20, camera, pir)
 
 def check_switch(switch):
     if switch.is_pressed == True:
