@@ -9,7 +9,7 @@ def video(time, camera, pir):
     infredLEDs.on()
     now = datetime.datetime.now()
     camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
-    while pir.is_pressed == True:
+    while pir.motion_detected == True:
         camera.wait_recording(time)
     camera.stop_recording()
     infredLEDs.off()
