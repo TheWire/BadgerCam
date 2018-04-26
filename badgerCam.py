@@ -34,6 +34,7 @@ def main():
     print("starting")
     onLED = LED(24)
     onLED.on()
+    check_switch(switch, onLED)
     camera = PiCamera()
     camera.resolution = (1920, 1080)
     switch = Button(2)
