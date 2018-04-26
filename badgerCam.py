@@ -18,7 +18,7 @@ def video(int time, PiCamera camera, MotionSensor pir):
 def motion_detection_handler(PiCamera camera, MotionSensor pir):
     video(120, camera, pir)
 
-def check_switch():
+def check_switch(Button switch):
     if switch.is_pressed == True:
         sleep(1)
         if switch.is_pressed == True:
