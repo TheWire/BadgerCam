@@ -1,6 +1,5 @@
 from gpiozero import MotionSensor
 from signal import pause
-from picamera import PiCamera 
 
 pir = MotionSensor(25)
 
