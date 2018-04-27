@@ -30,12 +30,12 @@ def switch_hold_handler(led):
 
 if __name__ == '__main__':
     print("starting")
-    onLED = LED(24)
-    onLED.on()
-    switch = Button(10)
+    #onLED = LED(24)
+    #onLED.on()
+    #switch = Button(10)
     #switch.when_held = switch_hold_handler(onLED)
-    camera = PiCamera()
-    camera.resolution = (1920, 1080)
+    #camera = PiCamera()
+    #camera.resolution = (1920, 1080)
     pir = MotionSensor(25)
     pir.when_motion = motion_detection_handler(camera, pir)
     pause()
