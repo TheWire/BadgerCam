@@ -22,7 +22,7 @@ def video(time):
 def motion_detection_handler():
     print("motion detected")
     motion = True
-    if !video_on:
+    if video_on == False:
         video_on = True
         video(10)
 
