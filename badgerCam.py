@@ -37,5 +37,5 @@ if __name__ == '__main__':
     #camera = PiCamera()
     #camera.resolution = (1920, 1080)
     pir = MotionSensor(25)
-    pir.when_motion = motion_detection_handler()
+    pir.when_motion = motion_detection_handler
     pause()
