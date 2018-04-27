@@ -15,6 +15,7 @@ def video(time, camera, pir):
     print("video off")
     camera.stop_recording()
     infredLEDs.off()
+    pir.when_motion = motion_detection_handler(camera, pir)
 
 
 def motion_detection_handler(camera, pir):
