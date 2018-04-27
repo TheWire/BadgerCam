@@ -9,13 +9,12 @@ def video(time, camera, pir):
     now = datetime.datetime.now()
     camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
     camera.wait_recording(time)
-    while pir.motion_detected == True:
-        print("motion still detected")
-        camera.wait_recording(time)
+    #while pir.motion_detected == True:
+        #print("motion still detected")
+        #camera.wait_recording(time)
     print("video off")
     camera.stop_recording()
     infredLEDs.off()
-    pir.when_motion = motion_detection_handler(camera, pir)
 
 
 def motion_detection_handler(camera, pir):
