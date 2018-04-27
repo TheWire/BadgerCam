@@ -26,7 +26,9 @@ def switch_hold_handler(led):
     led.off()
     exit()
 
-def main():
+
+
+if __name__ == '__main__':
     print("starting")
     onLED = LED(24)
     onLED.on()
@@ -37,7 +39,3 @@ def main():
     pir = MotionSensor(25)
     pir.when_motion = motion_detection_handler(camera, pir)
     pause()
-
-
-if __name__ == '__main__':
-    main()
