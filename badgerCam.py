@@ -1,6 +1,6 @@
 #import datetime
 #from picamera import PiCamera 
-from gpiozero import MotionSensor, LED, Button
+from gpiozero import MotionSensor#, LED, Button
 from signal import pause
 
 #def video(time, camera, pir):
@@ -17,7 +17,7 @@ from signal import pause
     #infredLEDs.off()
 
 
-def motion_detection_handler(pir):
+def motion_detection_handler():
     print("motion detected")
     #video(10, camera, pir)
 
@@ -37,5 +37,5 @@ if __name__ == '__main__':
     #camera = PiCamera()
     #camera.resolution = (1920, 1080)
     pir = MotionSensor(25)
-    pir.when_motion = motion_detection_handler(pir)
+    pir.when_motion = motion_detection_handler()
     pause()
