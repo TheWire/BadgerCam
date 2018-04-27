@@ -19,7 +19,7 @@ def video(time, camera, pir):
 
 def motion_detection_handler(camera, pir):
     print("motion detected")
-    video(10, camera, pir)
+    #video(10, camera, pir)
 
 def switch_hold_handler(led):
     print("switch off, exiting")
