@@ -9,17 +9,22 @@ def video(time):
     now = datetime.datetime.now()
     camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
     camera.wait_recording(time)
-    while pir.motion_detected == True:
+    while motion == True:
+        motion = False
         print("motion still detected")
         camera.wait_recording(time)
     print("video off")
+    video_on = False
     camera.stop_recording()
     infredLEDs.off()
 
 
 def motion_detection_handler():
     print("motion detected")
-    video(10)
+    motion = True
+    if !video_on:
+        video_on = True
+        video(10)
 
 def switch_hold_handler():
     print("switch off, exiting")
@@ -30,6 +35,8 @@ def switch_hold_handler():
 
 if __name__ == '__main__':
     print("starting")
+    video_on = False
+    motion = False
     onLED = LED(24)
     onLED.on()
     switch = Button(10)
