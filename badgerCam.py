@@ -25,7 +25,7 @@ def motion_not_detected_handler():
 
 def motion_detection_handler():
     print("motion detected")
-    video_on(10)
+    video_on(120)
 
 def switch_hold_handler():
     print("switch off, exiting")
