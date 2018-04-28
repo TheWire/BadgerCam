@@ -3,6 +3,19 @@ from picamera import PiCamera
 from gpiozero import MotionSensor, LED, Button
 from signal import pause
 
+print("starting")
+video_on = False
+motion = False
+onLED = LED(24)
+onLED.on()
+switch = Button(10)
+switch.when_held = switch_hold_handler
+camera = PiCamera()
+camera.resolution = (1920, 1080)
+pir = MotionSensor(25)
+pir.when_motion = motion_detection_handler
+pause()
+
 def video(time):
     infredLEDs = LED(5)
     infredLEDs.on()
@@ -30,17 +43,3 @@ def switch_hold_handler():
     print("switch off, exiting")
     onLED.off()
     exit()
-
-if __name__ == '__main__':
-    print("starting")
-    video_on = False
-    motion = False
-    onLED = LED(24)
-    onLED.on()
-    switch = Button(10)
-    switch.when_held = switch_hold_handler
-    camera = PiCamera()
-    camera.resolution = (1920, 1080)
-    pir = MotionSensor(25)
-    pir.when_motion = motion_detection_handler
-    pause()
