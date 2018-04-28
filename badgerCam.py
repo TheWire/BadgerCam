@@ -4,13 +4,12 @@ from gpiozero import MotionSensor, LED, Button
 from signal import pause
 
 def video_on(time):
-    infredLEDs = LED(5)
     infredLEDs.on()
     now = datetime.datetime.now()
     if camera.recording == False:
         print("video on")
         camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
-    else 
+    else: 
         print("Still motion")
     camera.wait_recording(time)
     
@@ -36,6 +35,7 @@ def switch_hold_handler():
 
 if __name__== "__main__":
     print("starting")
+    infredLEDs = LED(5)
     onLED = LED(24)
     onLED.on()
     switch = Button(10)
