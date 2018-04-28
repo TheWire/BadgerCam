@@ -9,7 +9,7 @@ def video(time):
     now = datetime.datetime.now()
     camera.start_recording(now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
     camera.wait_recording(time)
-    while pir.motion_detected == True:
+    while pir.motion_detected == False:
         print("motion still detected")
         camera.wait_recording(time)
     print("video off")
