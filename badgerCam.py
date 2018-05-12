@@ -1,4 +1,5 @@
 import datetime
+import os
 from picamera import PiCamera 
 from gpiozero import MotionSensor, LED, Button
 from signal import pause
@@ -8,7 +9,7 @@ def video_on(time):
     now = datetime.datetime.now()
     if camera.recording == False:
         print("video on")
-        camera.start_recording('~/video/' + now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
+        camera.start_recording(os.path.expanduser('~/video/') + now.strftime('%Y-%m-%dT%H:%M:%S') + '.h264')
     else: 
         print("Still motion")
     camera.wait_recording(time)
